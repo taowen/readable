@@ -1,5 +1,16 @@
 // bad
 
+/** The name. */
+private String name;
+/** The version. */
+private String version;
+/** The licenceName. */
+private String licenceName;
+/** The version. */
+private String info;
+
+// bad
+
 // Utility method that returns when this.closed is true. Throws an exception
 // if the timeout is reached.
 public synchronized void waitForClose(final long timeoutMillis)
