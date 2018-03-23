@@ -48,3 +48,20 @@ if ((employee.flags & HOURLY_FLAG) &&
 // good
   
 if (employee.isEligibleForFullBenefits())
+  
+// bad
+  
+if (request.user.id == document.owner_id) {
+ // user can edit this document...
+}
+
+// good
+
+final boolean user_owns_document = (request.user.id == document.owner_id);
+if (user_owns_document) {
+    // user can edit this document...
+}
+...
+if (!user_owns_document) {
+    // document is read-only...
+}
