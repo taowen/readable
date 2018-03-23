@@ -32,6 +32,15 @@ public List<Cell> getFlaggedCells() {
 
 // bad
 
+if line.split(':')[0].strip() == "root":
+
+// good
+
+username = line.split(':')[0].strip()
+if username == "root":
+
+// bad
+
 // Check to see if the employee is eligible for full benefits
 if ((employee.flags & HOURLY_FLAG) &&
  (employee.age > 65)) 
