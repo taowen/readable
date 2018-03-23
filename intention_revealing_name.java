@@ -29,3 +29,13 @@ public List<Cell> getFlaggedCells() {
   }
   return flaggedCells;  
 }
+
+// bad
+
+// Check to see if the employee is eligible for full benefits
+if ((employee.flags & HOURLY_FLAG) &&
+ (employee.age > 65)) 
+  
+// good
+  
+if (employee.isEligibleForFullBenefits())
