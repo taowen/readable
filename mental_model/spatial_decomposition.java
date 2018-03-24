@@ -110,3 +110,28 @@ business.url = "/biz/" + make_url_friendly(business.name)
 business.date_created = datetime.datetime.utcnow()
 business.save_to_database()
 
+// bad
+        
+$is_admin = is_admin_request();
+if ($document) {
+    if (!$is_admin && ($document['username'] != $_SESSION['username'])) {
+        return not_authorized();
+    }
+} else {
+    if (!$is_admin) {
+        return not_authorized();
+    }
+}
+// continue rendering the page ...
+
+// good
+
+if (is_admin_request()) {
+    // authorized
+}
+elseif($document && ($document['username'] == $_SESSION['username'])) {
+    // authorized
+} else {
+    return not_authorized();
+}
+// continue rendering the page ...
