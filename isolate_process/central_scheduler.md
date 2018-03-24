@@ -1,3 +1,6 @@
+![image](https://user-images.githubusercontent.com/40541/37859831-0e2b0288-2f55-11e8-8271-c999608ae638.png)
+
+```py
 # bad
 
 def PrintStockTransactions():
@@ -66,3 +69,4 @@ def AdvanceToMatchingTime(row_iter1, row_iter2, row_iter3):
         if t2 < tmax: row_iter2.NextRow()
         if t3 < tmax: row_iter3.NextRow()
     return None # no alignment could be found
+```
