@@ -25,3 +25,10 @@ var vote_value = function(vote) {
     }
     return 0;
 };
+
+var vote_changed = function(old_vote, new_vote) {
+    var score = get_score();
+    score -= vote_value(old_vote); // remove the old vote
+    score += vote_value(new_vote); // add the new vote
+    set_score(score);
+};
