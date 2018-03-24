@@ -81,3 +81,32 @@ public static String testableHtml(
      }
      return pageData.getHtml();
  }
+ 
+// bad
+
+business = Business()
+business.name = request.POST["name"]
+url_path_name = business.name.lower()
+url_path_name = re.sub(r"['\.]", "", url_path_name)
+url_path_name = re.sub(r"[^a-z0-9]+", "-", url_path_name)
+url_path_name = url_path_name.strip("-")
+business.url = "/biz/" + url_path_name
+business.date_created = datetime.datetime.utcnow()
+business.save_to_database()
+    
+// good
+    
+CHARS_TO_REMOVE = re.compile(r "['\.]+")
+CHARS_TO_DASH = re.compile(r "[^a-z0-9]+")
+def make_url_friendly(text):
+    text = text.lower()
+    text = CHARS_TO_REMOVE.sub('', text)
+    text = CHARS_TO_DASH.sub('-', text)
+    return text.strip("-")
+        
+business = Business()
+business.name = request.POST["name"]
+business.url = "/biz/" + make_url_friendly(business.name)
+business.date_created = datetime.datetime.utcnow()
+business.save_to_database()
+
