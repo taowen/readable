@@ -12,7 +12,7 @@ def ViewFilteredReplies(original_id):
             filtered_replies.append(reply)
     return filtered_replies
     
-// good
+# good
 
 def ViewFilteredReplies(original_id):
     root_message = Messages.objects.get(original_id)
