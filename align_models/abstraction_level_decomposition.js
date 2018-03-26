@@ -2,7 +2,7 @@
 
 // Return which element of 'array' is closest to the given latitude/longitude.
 // Models the Earth as a perfect sphere.
-var findClosestLocation = function(lat, lng, array) {
+var findSphericalClosest = function(lat, lng, array) {
     var closest;
     var closest_dist = Number.MAX_VALUE;
     for (var i = 0; i < array.length; i += 1) {
